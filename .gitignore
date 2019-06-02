@@ -1,0 +1,17 @@
+
+.DS_Store
+*.swp
+
+.vs/
+.vscode/
+build/
+
+**/.vscode/ipch/
+
+# 
+cmake-build-debug/
+cmake-build-release/
+.idea/
+
+*.dylib
+
