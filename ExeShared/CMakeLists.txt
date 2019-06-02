@@ -12,7 +12,7 @@ IF (WIN32)
 ENDIF()
 
 include_directories(../src)
-# file(GLOB src_files ../src/*.h)
+file(GLOB src_files ../src/*.h)
 
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} SharedDll)

@@ -9,12 +9,13 @@ IF (WIN32)
     set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Od /ZI")
     set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF")
+
+	add_definitions(-DSTATIC_LIB)
 ENDIF()
 
-add_definitions(-DSTATIC_LIB)
 
 include_directories(../src)
-# file(GLOB src_files ../src/*.h)
+file(GLOB src_files ../src/*.h)
 
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} StaticLib)
