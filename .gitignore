@@ -3,7 +3,7 @@
 *.swp
 
 .vs/
-.vscode/
+.vscode/ipch/
 build/
 
 **/.vscode/ipch/
