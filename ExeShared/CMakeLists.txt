@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.11)
 
-project(ExeDll)
+project(ExeShared)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -17,7 +17,7 @@ include_directories(../src)
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} SharedDll)
 
-add_custom_command(TARGET ExeDll POST_BUILD
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy 
         $<TARGET_FILE:SharedDll> $<TARGET_PDB_FILE:SharedDll>
-        $<TARGET_FILE_DIR:ExeDll>)
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>)
