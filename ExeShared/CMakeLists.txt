@@ -16,3 +16,8 @@ include_directories(../src)
 
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} SharedDll)
+
+add_custom_command(TARGET ExeDll POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy 
+        $<TARGET_FILE:SharedDll> $<TARGET_PDB_FILE:SharedDll>
+        $<TARGET_FILE_DIR:ExeDll>)

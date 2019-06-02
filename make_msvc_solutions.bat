@@ -7,6 +7,8 @@ if not exist build (
 
 call:make_solution build\msvc10x64 "Visual Studio 10 2010" x64
 
+goto:eof
+
 :make_solution
 setlocal enableDelayedExpansion
 @echo %1 %2 %3 %4 %5
