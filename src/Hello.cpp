@@ -13,5 +13,5 @@ Hello::~Hello()
 
 void Hello::greet()
 {
-    printf_s("hello");
+    printf("hello");
 }

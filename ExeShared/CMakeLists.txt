@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.11)
+cmake_minimum_required (VERSION 3.5)
 
 project(ExeShared)
 
@@ -17,7 +17,9 @@ include_directories(../src)
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} SharedDll)
 
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy 
-        $<TARGET_FILE:SharedDll> $<TARGET_PDB_FILE:SharedDll>
-        $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+IF (WIN32)
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            $<TARGET_FILE:SharedDll> $<TARGET_PDB_FILE:SharedDll>
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+ENDIF()
